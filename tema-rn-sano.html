@@ -9,19 +9,23 @@
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f9; color: #333; }
         .header { background: var(--teal); color: white; padding: 15px; text-align: center; }
         .tabs { display: flex; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; overflow-x: auto; z-index: 100; }
-        .tab-btn { padding: 15px 20px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; transition: 0.3s; flex: 1; min-width: 120px; }
+        .tab-btn { padding: 15px 20px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; transition: 0.3s; flex: 1; min-width: 120px; text-align: center; }
         .tab-btn.active { color: var(--teal); border-bottom: 4px solid var(--teal); background: var(--light-teal); }
+        
         .content-section { display: none; padding: 25px; max-width: 1000px; margin: auto; }
         .content-section.active { display: block; }
+        
         .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 25px; line-height: 1.6; }
         h2 { color: var(--teal); border-left: 5px solid var(--teal); padding-left: 10px; margin-top: 0; margin-bottom: 20px; }
-        h3 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        h3 { color: #555; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 20px; }
         .alerta { background: #fff3f3; border-left: 5px solid var(--red); padding: 15px; border-radius: 8px; margin: 15px 0; }
+        
         table { width:100%; border-collapse: collapse; margin: 20px 0; font-size: 0.9em; }
         th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
         th { background: #f8f9fa; color: #333; }
+        
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+        @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -40,16 +44,15 @@
 </div>
 
 <div id="gpc" class="content-section active">
-    
     <div class="card">
-        <h2>1. Definiciones y Clasificación</h2>
+        <h2>1. Definiciones y Clasificación </h2>
         <div class="grid-2">
             <div>
-                <h3>Por Edad Gestacional</h3>
+                <h3>Por Edad Gestacional </h3>
                 <ul>
-                    <li><strong>Pretérmino:</strong> <37 semanas.
+                    <li><strong>Pretérmino:</strong> &lt;37 semanas.
                         <ul>
-                            <li>Extremo: <28 semanas.</li>
+                            <li>Extremo: &lt;28 semanas.</li>
                             <li>Muy prematuro: 28 - 31.6 semanas.</li>
                             <li>Tardío: 32 - 36.6 semanas.</li>
                         </ul>
@@ -59,76 +62,118 @@
                 </ul>
             </div>
             <div>
-                <h3>Por Peso al Nacer</h3>
+                <h3>Por Peso al Nacer </h3>
                 <ul>
-                    <li><strong>Bajo peso:</strong> <2,500 g.</li>
-                    <li><strong>Muy bajo peso:</strong> <1,500 g.</li>
-                    <li><strong>Extremadamente bajo:</strong> <1,000 g.</li>
+                    <li><strong>Bajo peso:</strong> &lt;2,500 g.</li>
+                    <li><strong>Muy bajo peso:</strong> &lt;1,500 g.</li>
+                    <li><strong>Extremadamente bajo:</strong> &lt;1,000 g.</li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>2. Atención del RN Sano</h2>
+        <h2>2. Atención del RN Sano </h2>
         <ul>
-            <li><strong>Pinzamiento del cordón:</strong> Realizar entre 60 a 120 segundos (mejor reserva de hierro).</li>
-            <li><strong>Contacto piel a piel:</strong> Iniciar en la primera hora de forma continua (fomenta vínculo y lactancia).</li>
-            <li><strong>Profilaxis Hemorrágica:</strong> Vitamina K 1 mg IM dosis única.</li>
-            <li><strong>Profilaxis Oftálmica:</strong> Nitrato de plata o antibióticos tópicos (previene conjuntivitis neonatal).</li>
+            <li><strong>Pinzamiento del cordón:</strong> Realizar entre 60 a 120 segundos (pinzamiento tardío) para mejorar las reservas de hierro.</li>
+            <li><strong>Contacto piel a piel:</strong> Iniciar en la primera hora de vida de forma continua para fomentar el vínculo y la lactancia.</li>
+            <li><strong>Vitamina K:</strong> 1 mg IM dosis única para prevenir enfermedad hemorrágica.</li>
+            <li><strong>Profilaxis Oftálmica:</strong> Nitrato de plata o antibióticos tópicos para prevenir conjuntivitis neonatal.</li>
             <li><strong>Tamiz Metabólico:</strong> Idealmente entre el 3er y 5to día de vida.</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2 style="color: var(--red);">3. Reanimación Neonatal (RENEO)</h2>
-        <h3>Evaluación Inicial (Las 3 Preguntas)</h3>
-        <p>¿Es a término? ¿Tiene buen tono? ¿Respira o llora?</p>
+        <h2 style="color: var(--red);">3. Reanimación Neonatal (RENEO) </h2>
+        <h3>Evaluación Inicial (Las 3 Preguntas) </h3>
+        <p>Al nacer, debemos preguntarnos: ¿Es a término? ¿Tiene buen tono muscular? ¿Respira o llora?.</p>
         
         <div class="alerta">
-            <strong>Algoritmo de Intervención:</strong>
+            <strong>Algoritmo Crítico:</strong>
             <ul>
-                <li><strong>FC < 100 lpm o Apnea:</strong> Iniciar Ventilación a Presión Positiva (VPP). ¡Es la medida más efectiva!</li>
-                <li><strong>FC < 60 lpm:</strong> Tras 30s de VPP efectiva (usar MR. SOPA), iniciar Compresiones Torácicas.</li>
-                <li><strong>Relación de Compresión:</strong> 3 compresiones por 1 ventilación (90 comp / 30 vent por min).</li>
-                <li><strong>Medicamentos:</strong> Adrenalina 0.01 a 0.03 mg/kg vía vena umbilical si persiste FC < 60.</li>
+                <li><strong>FC &lt; 100 lpm o Apnea:</strong> Iniciar Ventilación a Presión Positiva (VPP). Es la medida más efectiva.</li>
+                <li><strong>FC &lt; 60 lpm:</strong> Tras 30s de VPP efectiva (usar <strong>MR. SOPA</strong> para corregir), iniciar Compresiones Torácicas.</li>
+                <li><strong>Relación:</strong> 3 compresiones por 1 ventilación (90 compresiones y 30 ventilaciones por minuto).</li>
+                <li><strong>Adrenalina:</strong> 0.01 a 0.03 mg/kg vía vena umbilical si persiste FC &lt; 60.</li>
             </ul>
         </div>
 
-        <h3>Objetivos de Saturación Pre-ductal (Mano derecha)</h3>
+        <h3>Objetivos de Saturación Pre-ductal (Mano derecha) </h3>
         <table>
-            <tr><th>Tiempo</th><th>Saturación Objetivo</th></tr>
+            <tr><th>Tiempo</th><th>Saturación Objetivo </th></tr>
             <tr><td>1 min</td><td>60% - 65%</td></tr>
             <tr><td>5 min</td><td>80% - 85%</td></tr>
             <tr><td>10 min</td><td>85% - 95%</td></tr>
         </table>
-        <p><small>*En >35 sem, iniciar reanimación con FiO2 al 21% (aire ambiente).</small></p>
+        <p><small>*En mayores de 35 semanas, iniciar reanimación con aire ambiente (FiO2 21%).</small></p>
     </div>
 
     <div class="card">
-        <h2>4. Escalas de Valoración Clínica</h2>
-        <h3>Test de APGAR (Vitalidad)</h3>
-        <p>Evalúa: Frecuencia cardíaca, Esfuerzo respiratorio, Tono muscular, Irritabilidad refleja y Color de piel.</p>
+        <h2>4. Escalas Clínicas (Imágenes de Apoyo) </h2>
+        <h3>Test de APGAR (Vitalidad) [cite: 1]</h3>
         <ul>
-            <li><strong>7-10 puntos:</strong> Sin depresión (Normal).</li>
-            <li><strong>4-6 puntos:</strong> Depresión moderada.</li>
-            <li><strong>0-3 puntos:</strong> Depresión severa.</li>
+            <li><strong>7-10:</strong> Normal[cite: 1].</li>
+            <li><strong>4-6:</strong> Depresión moderada[cite: 1].</li>
+            <li><strong>0-3:</strong> Depresión severa[cite: 1].</li>
         </ul>
 
-        <h3>Test de Silverman-Anderson (Dificultad Respiratoria)</h3>
-        <p>Contrario al Apgar, <strong>a menor puntaje, mejor pronóstico:</strong></p>
-        <ul>
-            <li><strong>0 puntos:</strong> Sin dificultad respiratoria.</li>
-            <li><strong>1-3 puntos:</strong> Dificultad leve.</li>
-            <li><strong>4-6 puntos:</strong> Dificultad moderada.</li>
-            <li><strong>7-10 puntos:</strong> Dificultad severa.</li>
-        </ul>
+        <h3>Test de Silverman-Anderson [cite: 2]</h3>
+        <p>Evalúa dificultad respiratoria. Nota: A diferencia de Apgar, 0 es el estado óptimo[cite: 2].</p>
 
-        <h3>Método de Capurro (Edad Gestacional)</h3>
-        <p>Utiliza parámetros somáticos (pabellón oreja, glándula mamaria, formación pezón, textura piel, pliegues plantares).</p>
-        <p><strong>Fórmula:</strong> (Constante 204 + Puntaje parcial) / 7.</p>
+        <h3>Capurro [cite: 3]</h3>
+        <p>Determina edad gestacional mediante parámetros somáticos y neurológicos[cite: 3].</p>
     </div>
 </div>
 
-<div id="infografia" class="content-section"><div class="card"><h2>Infografía</h2><p>Próximamente...</p></div></div>
-<div id="flashcards" class="content-section"><div
+<div id="infografia" class="content-section">
+    <div class="card">
+        <h2>Infografía</h2>
+        <p>Aquí podrás subir tus esquemas visuales del RN Sano.</p>
+    </div>
+</div>
+
+<div id="flashcards" class="content-section">
+    <div class="card">
+        <h2>Flashcards</h2>
+        <p>Espacio para tarjetas de memorización rápida.</p>
+    </div>
+</div>
+
+<div id="simulador" class="content-section">
+    <div class="card">
+        <h2>Simulador (10 Preguntas)</h2>
+        <p>Cargando preguntas basadas en GPC y RENEO...</p>
+    </div>
+</div>
+
+<div id="extras" class="content-section">
+    <div class="card">
+        <h2>Herramientas Extras</h2>
+        <p>Diagramas de flujo y tablas adicionales.</p>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        // 1. Ocultar todas las secciones
+        var sections = document.getElementsByClassName("content-section");
+        for (var i = 0; i < sections.length; i++) {
+            sections[i].style.display = "none";
+            sections[i].classList.remove("active");
+        }
+
+        // 2. Quitar clase 'active' de todos los botones
+        var buttons = document.getElementsByClassName("tab-btn");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+
+        // 3. Mostrar la sección actual y marcar botón como activo
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
+</script>
+
+</body>
+</html>
