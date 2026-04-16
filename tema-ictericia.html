@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Recursos: Ictericia Neonatal</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; background: #fafafa; }
+        .nav-tabs { display: flex; background: #333; overflow-x: auto; }
+        .tab { padding: 15px 20px; color: white; cursor: pointer; border: none; background: none; flex: 1; text-align: center; font-size: 0.9em; }
+        .tab:hover { background: #444; }
+        .tab.active { border-bottom: 4px solid #ffa117; background: #555; }
+        .content { padding: 20px; max-width: 900px; margin: auto; display: none; }
+        .content.active { display: block; }
+        .card-recurso { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+
+    <div class="nav-tabs">
+        <button class="tab active" onclick="openTab(event, 'resumen')">Resumen GPC</button>
+        <button class="tab" onclick="openTab(event, 'infografia')">Infografía</button>
+        <button class="tab" onclick="openTab(event, 'flashcards')">Flashcards</button>
+        <button class="tab" onclick="openTab(event, 'simulador')">Simulador (10)</button>
+        <button class="tab" onclick="openTab(event, 'herramientas')">Extras</button>
+    </div>
+
+    <div id="resumen" class="content active">
+        <div class="card-recurso">
+            <h2>Puntos Clave GPC: Ictericia</h2>
+            <ul>
+                <li><strong>Definición:</strong> Coloración amarillenta por bilirrubina >5mg/dL.</li>
+                <li><strong>Escala de Kramer:</strong> Clasificación clínica de la progresión cefalocaudal.</li>
+                <li><strong>Tratamiento:</strong> Fototerapia es la primera línea.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="simulador" class="content">
+        <div class="card-recurso">
+            <h2>Simulador de 10 preguntas</h2>
+            <p>Cargando preguntas tipo ENARM...</p>
+        </div>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, content, tabs;
+            content = document.getElementsByClassName("content");
+            for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+            tabs = document.getElementsByClassName("tab");
+            for (i = 0; i < tabs.length; i++) { tabs[i].className = tabs[i].className.replace(" active", ""); }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
