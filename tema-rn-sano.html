@@ -3,27 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recién Nacido Sano y RENEO - Detallado</title>
+    <title>RN Sano y RENEO - ENARM</title>
     <style>
         :root { --teal: #00897b; --light-teal: #e0f2f1; --red: #d32f2f; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f9; color: #333; }
         .header { background: var(--teal); color: white; padding: 15px; text-align: center; }
-        
-        /* Pestañas */
         .tabs { display: flex; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; overflow-x: auto; z-index: 100; }
         .tab-btn { padding: 15px 20px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; flex: 1; min-width: 120px; border-bottom: 4px solid transparent; }
         .tab-btn.active { color: var(--teal); border-bottom: 4px solid var(--teal); background: var(--light-teal); }
         
-        /* Secciones de contenido */
         .content-section { display: none; padding: 20px; max-width: 900px; margin: auto; }
-        .content-section.active { display: block !important; } /* Forzamos que se muestre */
+        .content-section.active { display: block !important; }
         
         .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
         h2 { color: var(--teal); border-left: 5px solid var(--teal); padding-left: 10px; margin-top: 0; }
-        .alerta { background: #fff3f3; border-left: 5px solid var(--red); padding: 15px; border-radius: 8px; margin: 15px 0; }
+        
+        /* Estilos del Simulador */
+        .pregunta-bloque { border-bottom: 2px solid #eee; padding: 20px 0; }
+        .opcion { padding: 12px 15px; border: 1px solid #ddd; margin: 10px 0; border-radius: 8px; cursor: pointer; transition: all 0.3s; background: #f9f9f9; }
+        .opcion:hover { background: #e0f2f1; border-color: #00897b; transform: translateX(5px); }
+        .opcion.correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
+        .opcion.wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
+        .feedback { margin-top: 10px; padding: 10px; border-radius: 5px; display: none; font-style: italic; font-size: 0.9em; }
+        
         table { width:100%; border-collapse: collapse; margin: 15px 0; }
         th, td { padding: 10px; border: 1px solid #ddd; text-align: left; font-size: 0.9em; }
-        th { background: #f8f9fa; }
     </style>
 </head>
 <body>
@@ -43,246 +47,148 @@
 
 <div id="gpc" class="content-section active">
     <div class="card">
-        <h2>1. Clasificación del Recién Nacido</h2>
-        <p><strong>Por Edad Gestacional[cite: 1, 5]:</strong></p>
-        <ul>
-            <li><strong>Pretérmino:</strong> &lt;37 semanas (Extremo &lt;28, Muy prematuro 28-31.6, Tardío 32-36.6)[cite: 6].</li>
-            <li><strong>Término:</strong> 37 a 41.6 semanas[cite: 7].</li>
-            <li><strong>Postérmino:</strong> ≥42 semanas[cite: 8].</li>
-        </ul>
-        <p><strong>Por Peso[cite: 9]:</strong></p>
-        <ul>
-            <li><strong>Bajo peso:</strong> &lt;2,500 g[cite: 10].</li>
-            <li><strong>Muy bajo peso:</strong> &lt;1,500 g[cite: 11].</li>
-            <li><strong>Extremadamente bajo:</strong> &lt;1,000 g[cite: 13].</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2>2. Atención Inicial (Puntos GPC)</h2>
-        <ul>
-            <li><strong>Pinzamiento del cordón:</strong> Entre 60 a 120 segundos para mejorar reservas de hierro[cite: 18, 19].</li>
-            <li><strong>Contacto piel a piel:</strong> Iniciar en la primera hora de vida de forma continua[cite: 20].</li>
-            <li><strong>Vitamina K:</strong> 1 mg IM dosis única para prevenir enfermedad hemorrágica[cite: 22].</li>
-            <li><strong>Profilaxis oftálmica:</strong> Nitrato de plata o antibióticos tópicos[cite: 23].</li>
-            <li><strong>Tamiz metabólico:</strong> Realizar idealmente entre el 3er y 5to día de vida[cite: 24].</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <h2 style="color: var(--red);">3. Reanimación Neonatal (RENEO)</h2>
-        <p><strong>Evaluación Inicial:</strong> ¿Es a término? ¿Buen tono? ¿Respira o llora?[cite: 28, 29, 30, 31, 32].</p>
-        <div class="alerta">
-            <strong>Algoritmo Crítico:</strong>
-            <ul>
-                <li><strong>FC &lt; 100 lpm o Apnea:</strong> Iniciar Ventilación a Presión Positiva (VPP). Es la medida más efectiva[cite: 38, 39].</li>
-                <li><strong>FC &lt; 60 lpm:</strong> Tras 30s de VPP efectiva (usar MR. SOPA), iniciar Compresiones Torácicas[cite: 40].</li>
-                <li><strong>Relación:</strong> 3 compresiones por 1 ventilación[cite: 42].</li>
-                <li><strong>Medicamentos:</strong> Adrenalina 0.01 a 0.03 mg/kg vía vena umbilical[cite: 46].</li>
-            </ul>
-        </div>
-        <h3>Metas de Saturación Pre-ductal (Mano derecha)[cite: 49]:</h3>
-        <table>
-            <tr><th>Tiempo</th><th>Saturación Objetivo</th></tr>
-            <tr><td>1 min</td><td>60% - 65% [cite: 50]</td></tr>
-            <tr><td>5 min</td><td>80% - 85% [cite: 51]</td></tr>
-            <tr><td>10 min</td><td>85% - 95% [cite: 52]</td></tr>
-        </table>
+        <h2>Resumen Detallado GPC</h2>
+        <p><strong>Clasificación por Peso:</strong> Bajo (<2,500g), Muy Bajo (<1,500g), Extremo (<1,000g).</p>
+        <p><strong>RENEO:</strong> FC < 100 iniciar VPP. FC < 60 iniciar compresiones (3:1).</p>
+        <p><strong>Saturación 1 min:</strong> 60-65%. <strong>5 min:</strong> 80-85%. <strong>10 min:</strong> 85-95%.</p>
     </div>
 </div>
 
 <div id="infografia" class="content-section">
     <div class="card">
-        <h2>Infografía</h2>
-        <p>Contenido visual del tema.</p>
+        <h2>Infografías y Tablas</h2>
+        <p>Aquí colocaremos las tablas visuales de Apgar y Silverman.</p>
     </div>
 </div>
 
 <div id="flashcards" class="content-section">
     <div class="card">
-        <h2>Flashcards</h2>
-        <p>Tarjetas de memoria.</p>
+        <h2>Flashcards de Memorización</h2>
+        <p>Próximamente: Tarjetas interactivas.</p>
     </div>
 </div>
 
-<div class="card">
-    <h2>Simulador Tipo ENARM (10 Preguntas)</h2>
-    <p>Selecciona la respuesta correcta. Al finalizar cada pregunta verás la retroalimentación basada en GPC.</p>
-    <hr>
-    
-    <div id="quiz-container">
-        <div class="pregunta-bloque" id="p1">
-            <p><strong>1. ¿Cuál es la conducta inicial recomendada ante un RN de término, con buen tono, que respira y llora al nacer?</strong></p>
-            <div class="opcion" onclick="validar(this, true, 'p1', '¡Correcto! En el RN sano se debe fomentar el apego inmediato y el pinzamiento tardío.')">A) Contacto piel a piel y pinzamiento del cordón a los 60-120 segundos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto. La aspiración de rutina no se recomienda en RN vigorosos por riesgo de bradicardia.')">B) Traslado a servocuna para aspiración de secreciones.</div>
-            <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto. El pinzamiento inmediato se reserva para casos de urgencia materna o fetal.')">C) Pinzamiento inmediato del cordón umbilical.</div>
-            <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto. La profilaxis no debe interrumpir la primera hora de apego.')">D) Administración de vitamina K antes del contacto piel a piel.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p2">
-            <p><strong>2. ¿Cuál es la intervención más efectiva ante un RN con FC < 100 lpm o apnea tras los pasos iniciales?</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto. El oxígeno no soluciona el problema de ventilación.')">A) Administración de oxígeno a flujo libre al 100%.</div>
-            <div class="opcion" onclick="validar(this, true, 'p2', '¡Correcto! La VPP es la medida de reanimación más importante y efectiva.')">B) Iniciar Ventilación a Presión Positiva (VPP).</div>
-            <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto. Las compresiones inician solo si la FC es < 60 tras VPP efectiva.')">C) Iniciar compresiones torácicas coordinadas.</div>
-            <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto. La estimulación táctil ya debió realizarse en los pasos iniciales.')">D) Estimulación táctil vigorosa en espalda.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p3">
-            <p><strong>3. ¿Qué puntaje de APGAR tiene un RN con FC de 110, llanto débil, cierta flexión, gesticulación y acrocianosis?</strong></p>
-            <div class="opcion" onclick="validar(this, true, 'p3', '¡Correcto! Suma: FC(2) + Resp(1) + Tono(1) + Reflejo(1) + Color(1) = 6.')">A) 6 puntos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto. El llanto débil y la acrocianosis restan puntos.')">B) 8 puntos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto. La FC mayor a 100 da 2 puntos.')">C) 7 puntos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto. Revisa bien los parámetros; el puntaje es mayor.')">D) 5 puntos.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p4">
-            <p><strong>4. ¿En qué sitio se debe colocar el oxímetro para obtener una lectura de saturación pre-ductal?</strong></p>
-            <div class="opcion" onclick="validar(this, true, 'p4', '¡Correcto! La mano derecha refleja la sangre antes del ductus.')">A) Mano derecha.</div>
-            <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto. Es post-ductal.')">B) Pie izquierdo.</div>
-            <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto. Es post-ductal.')">C) Pie derecho.</div>
-            <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto. Se prefiere la derecha por anatomía.')">D) Mano izquierda.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p5">
-            <p><strong>5. En la mnemotecnia MR. SOPA, ¿qué representa la letra "S"?</strong></p>
-            <div class="opcion" onclick="validar(this, true, 'p5', '¡Correcto! Succión de boca y nariz para despejar vía aérea.')">A) Succión de boca y nariz.</div>
-            <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto. Esa es la M.')">B) Sello de la máscara.</div>
-            <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto. Esa es la R.')">C) Sobreextensión del cuello.</div>
-            <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto. No es un paso correctivo de ventilación.')">D) Saturación de oxígeno.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p6">
-            <p><strong>6. ¿Cuál es la meta de saturación pre-ductal esperada a los 5 minutos de vida?</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto. Esa es al 1er minuto.')">A) 60% - 65%.</div>
-            <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto. Es insuficiente para los 5 min.')">B) 70% - 75%.</div>
-            <div class="opcion" onclick="validar(this, true, 'p6', '¡Correcto! Según el manual de RENEO, a los 5 min es 80-85%.')">C) 80% - 85%.</div>
-            <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto. Esa es la meta a los 10 min.')">D) 85% - 95%.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p7">
-            <p><strong>7. ¿Cuál es el fármaco y dosis de elección en reanimación si la FC persiste < 60 tras VPP y compresiones?</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto. La dosis es muy alta.')">A) Adrenalina 0.1 mg/kg IV.</div>
-            <div class="opcion" onclick="validar(this, true, 'p7', '¡Correcto! Dosis IV/Umbilical: 0.01 a 0.03 mg/kg.')">B) Adrenalina 0.01 a 0.03 mg/kg IV.</div>
-            <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto. No es el fármaco de primera línea.')">C) Bicarbonato de Sodio 1 mEq/kg.</div>
-            <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto. Solo si hay sospecha de hipovolemia.')">D) Solución Salina 10 ml/kg.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p8">
-            <p><strong>8. Un RN con aleteo nasal marcado, quejido audible sin esteto y tiraje intercostal acentuado tiene un Silverman de:</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto. 0 es sin dificultad.')">A) 0 puntos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto. Los signos descritos son graves.')">B) 3 puntos.</div>
-            <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto. Es una dificultad grave.')">C) 5 puntos.</div>
-            <div class="opcion" onclick="validar(this, true, 'p8', '¡Correcto! Los signos descritos puntúan para una dificultad grave (pueden llegar a 10).')">D) 8-10 puntos.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p9">
-            <p><strong>9. ¿Cómo se clasifica a un neonato nacido a las 35 semanas con un peso de 1,450 gramos?</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto. <37 semanas es pretérmino.')">A) Término con bajo peso.</div>
-            <div class="opcion" onclick="validar(this, true, 'p9', '¡Correcto! Pretérmino (<37 sem) y muy bajo peso (<1,500 g).')">B) Pretérmino con muy bajo peso.</div>
-            <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto. Sería si pesara <1,000 g.')">C) Pretérmino con peso extremadamente bajo.</div>
-            <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto. Postérmino es >42 semanas.')">D) Postérmino con bajo peso.</div>
-            <div class="feedback"></div>
-        </div>
-
-        <div class="pregunta-bloque" id="p10">
-            <p><strong>10. ¿Cuál es la relación compresión/ventilación recomendada en la reanimación neonatal?</strong></p>
-            <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto. Esa es para adultos/niños.')">A) 30 compresiones / 2 ventilaciones.</div>
-            <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto. Esa es para dos reanimadores en pediatría.')">B) 15 compresiones / 2 ventilaciones.</div>
-            <div class="opcion" onclick="validar(this, true, 'p10', '¡Correcto! En neonatos la relación es 3:1 (90 comp / 30 vent por minuto).')">C) 3 compresiones / 1 ventilación.</div>
-            <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto. No es una relación estándar.')">D) 5 compresiones / 1 ventilación.</div>
-            <div class="feedback"></div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .pregunta-bloque { border-bottom: 2px solid #eee; padding: 20px 0; }
-    .opcion { 
-        padding: 12px 15px; 
-        border: 1px solid #ddd; 
-        margin: 10px 0; 
-        border-radius: 8px; 
-        cursor: pointer; 
-        transition: all 0.3s;
-        background: #f9f9f9;
-        font-size: 0.95em;
-    }
-    .opcion:hover { background: #e0f2f1; border-color: #00897b; transform: translateX(5px); }
-    .opcion.correct { background: #d4edda !important; border-color: #28a745 !important; color: #155724; font-weight: bold; }
-    .opcion.wrong { background: #f8d7da !important; border-color: #dc3545 !important; color: #721c24; }
-    .feedback { margin-top: 10px; padding: 10px; border-radius: 5px; display: none; font-style: italic; font-size: 0.9em; }
-</style>
-
-<script>
-    function validar(elemento, esCorrecto, idPadre, mensaje) {
-        let padre = document.getElementById(idPadre);
-        let opciones = padre.getElementsByClassName('opcion');
-        let fb = padre.getElementsByClassName('feedback')[0];
-
-        // Evitar que el usuario cambie la respuesta
-        for (let opt of opciones) { 
-            opt.style.pointerEvents = "none"; 
-        }
-
-        if (esCorrecto) {
-            elemento.classList.add('correct');
-            fb.style.background = "#d4edda";
-            fb.style.color = "#155724";
-        } else {
-            elemento.classList.add('wrong');
-            fb.style.background = "#f8d7da";
-            fb.style.color = "#721c24";
-            // Marcar la correcta para que aprenda
-            for (let opt of opciones) {
-                if (opt.innerText.startsWith('A) ') && idPadre === 'p1') opt.classList.add('correct'); // Ejemplo manual si quisieras
-            }
-        }
-
-        fb.innerHTML = mensaje;
-        fb.style.display = "block";
-    }
-</script>
+<div id="simulador" class="content-section">
     <div class="card">
-        <h2>Simulador</h2>
-        <p>Cargando preguntas de reanimación y RN sano...</p>
+        <h2>Simulador Tipo ENARM (10 Preguntas)</h2>
+        <div id="quiz-container">
+            <div class="pregunta-bloque" id="p1">
+                <p><strong>1. ¿Conducta inicial ante RN de término, sano y vigoroso?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p1', '¡Correcto! Apego inmediato y pinzamiento tardío.')">A) Contacto piel a piel y pinzamiento 60-120 seg.</div>
+                <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto.')">B) Aspiración de rutina.</div>
+                <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto.')">C) Pinzamiento inmediato.</div>
+                <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto.')">D) Vitamina K antes del apego.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p2">
+                <p><strong>2. ¿Intervención más efectiva ante FC < 100 lpm o apnea?</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto.')">A) Oxígeno flujo libre.</div>
+                <div class="opcion" onclick="validar(this, true, 'p2', '¡Correcto! La VPP es lo más efectivo.')">B) Iniciar VPP.</div>
+                <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto.')">C) Compresiones torácicas.</div>
+                <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto.')">D) Estimulación táctil.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p3">
+                <p><strong>3. ¿Puntaje APGAR: FC 110, llanto débil, cierta flexión, gesticulación, acrocianosis?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p3', '¡Correcto! Suma 6 puntos.')">A) 6 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto.')">B) 8 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto.')">C) 7 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto.')">D) 5 puntos.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p4">
+                <p><strong>4. ¿Sitio para saturación pre-ductal?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p4', '¡Correcto! Mano derecha.')">A) Mano derecha.</div>
+                <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto.')">B) Pie izquierdo.</div>
+                <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto.')">C) Pie derecho.</div>
+                <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto.')">D) Mano izquierda.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p5">
+                <p><strong>5. En MR. SOPA, ¿qué es la "S"?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p5', '¡Correcto! Succión.')">A) Succión de boca y nariz.</div>
+                <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto.')">B) Sello de la máscara.</div>
+                <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto.')">C) Sobreextensión.</div>
+                <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto.')">D) Saturación.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p6">
+                <p><strong>6. Meta de saturación a los 5 minutos:</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto.')">A) 60-65%.</div>
+                <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto.')">B) 70-75%.</div>
+                <div class="opcion" onclick="validar(this, true, 'p6', '¡Correcto! 80-85%.')">C) 80-85%.</div>
+                <div class="opcion" onclick="validar(this, false, 'p6', 'Incorrecto.')">D) 85-95%.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p7">
+                <p><strong>7. Dosis de Adrenalina IV/Umbilical:</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto.')">A) 0.1 mg/kg.</div>
+                <div class="opcion" onclick="validar(this, true, 'p7', '¡Correcto! 0.01 a 0.03 mg/kg.')">B) 0.01 a 0.03 mg/kg.</div>
+                <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto.')">C) 1 mg/kg.</div>
+                <div class="opcion" onclick="validar(this, false, 'p7', 'Incorrecto.')">D) 0.5 mg/kg.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p8">
+                <p><strong>8. Aleteo nasal marcado, quejido audible y tiraje acentuado es Silverman:</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto.')">A) 0 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto.')">B) 2 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p8', 'Incorrecto.')">C) 4 puntos.</div>
+                <div class="opcion" onclick="validar(this, true, 'p8', '¡Correcto! Dificultad grave (8-10).')">D) 8-10 puntos.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p9">
+                <p><strong>9. Clasificación: 35 semanas y 1,450 gramos:</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto.')">A) Término bajo peso.</div>
+                <div class="opcion" onclick="validar(this, true, 'p9', '¡Correcto! Pretérmino muy bajo peso.')">B) Pretérmino muy bajo peso.</div>
+                <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto.')">C) Peso extrem. bajo.</div>
+                <div class="opcion" onclick="validar(this, false, 'p9', 'Incorrecto.')">D) Postérmino.</div>
+                <div class="feedback"></div>
+            </div>
+            <div class="pregunta-bloque" id="p10">
+                <p><strong>10. Relación compresión/ventilación en neonatos:</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto.')">A) 30:2.</div>
+                <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto.')">B) 15:2.</div>
+                <div class="opcion" onclick="validar(this, true, 'p10', '¡Correcto! 3:1.')">C) 3:1.</div>
+                <div class="opcion" onclick="validar(this, false, 'p10', 'Incorrecto.')">D) 5:1.</div>
+                <div class="feedback"></div>
+            </div>
+        </div>
     </div>
 </div>
 
 <div id="extras" class="content-section">
     <div class="card">
-        <h2>Herramientas Extras</h2>
-        <p>Diagramas de flujo y escalas.</p>
+        <h2>Material Extra</h2>
+        <p>Calculadoras y algoritmos adicionales.</p>
     </div>
 </div>
 
 <script>
     function openTab(evt, tabName) {
-        // 1. Ocultar todas las secciones usando display 'none'
         var contents = document.getElementsByClassName("content-section");
         for (var i = 0; i < contents.length; i++) {
             contents[i].style.display = "none";
             contents[i].classList.remove("active");
         }
-
-        // 2. Quitar la clase 'active' de todos los botones
         var buttons = document.getElementsByClassName("tab-btn");
         for (var i = 0; i < buttons.length; i++) {
-            buttons[i].className = buttons[i].className.replace(" active", "");
+            buttons[i].classList.remove("active");
         }
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+    }
 
-        // 3. Mostrar la sección seleccionada y activar el botón
-        var target = document.getElementById(tabName);
-        target.style.display = "block";
-        target.classList.add("active");
-        evt.currentTarget.className += " active";
+    function validar(elemento, esCorrecto, idPadre, mensaje) {
+        let padre = document.getElementById(idPadre);
+        let opciones = padre.getElementsByClassName('opcion');
+        let fb = padre.getElementsByClassName('feedback')[0];
+        for (let opt of opciones) { opt.style.pointerEvents = "none"; }
+        if (esCorrecto) { elemento.classList.add('correct'); } 
+        else { elemento.classList.add('wrong'); }
+        fb.innerHTML = mensaje;
+        fb.style.display = "block";
+        fb.style.background = esCorrecto ? "#d4edda" : "#f8d7da";
     }
 </script>
 
