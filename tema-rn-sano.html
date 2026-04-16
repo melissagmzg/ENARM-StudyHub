@@ -8,31 +8,22 @@
         :root { --teal: #00897b; --light-teal: #e0f2f1; }
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f9; }
         .header { background: var(--teal); color: white; padding: 15px; text-align: center; }
-        
-        /* Sistema de Pestañas */
-        .tabs { display: flex; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); sticky; top: 0; overflow-x: auto; }
+        .tabs { display: flex; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); position: sticky; top: 0; overflow-x: auto; z-index: 100; }
         .tab-btn { padding: 15px 20px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; transition: 0.3s; flex: 1; min-width: 120px; }
         .tab-btn.active { color: var(--teal); border-bottom: 4px solid var(--teal); background: var(--light-teal); }
-
         .content-section { display: none; padding: 25px; max-width: 900px; margin: auto; }
         .content-section.active { display: block; }
-
-        /* Estilos de Tarjetas de Contenido */
         .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
-        h2 { color: var(--teal); border-left: 5px solid var(--teal); padding-left: 10px; }
-        
-        /* Simulador */
-        .pregunta { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
-        .opcion { display: block; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
-        .opcion:hover { background: #f0f0f0; }
-        .correcta { background: #d4edda; border-color: #28a745; }
-        .incorrecta { background: #f8d7da; border-color: #dc3545; }
+        h2 { color: var(--teal); border-left: 5px solid var(--teal); padding-left: 10px; margin-top: 0; }
+        table { width:100%; border-collapse: collapse; font-size: 0.85em; margin-top: 10px; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: var(--teal); color: white; }
     </style>
 </head>
 <body>
 
 <div class="header">
-    <h1 style="margin:0; font-size: 1.2em;">Recién Nacido Sano</h1>
+    <h1 style="margin:0; font-size: 1.2em;">Recién Nacido Sano y Reanimación</h1>
     <a href="neonatologia.html" style="color: white; text-decoration:none; font-size: 0.8em;">← Volver al Temario</a>
 </div>
 
@@ -40,131 +31,64 @@
     <button class="tab-btn active" onclick="openTab(event, 'gpc')">Resumen GPC</button>
     <button class="tab-btn" onclick="openTab(event, 'infografia')">Infografía</button>
     <button class="tab-btn" onclick="openTab(event, 'flashcards')">Flashcards</button>
-    <button class="tab-btn" onclick="openTab(event, 'simulador')">Simulador</button>
+    <button class="tab-btn" onclick="event.preventDefault(); openTab(event, 'simulador')">Simulador</button>
     <button class="tab-btn" onclick="openTab(event, 'extras')">Extras</button>
 </div>
 
 <div id="gpc" class="content-section active">
-    
     <div class="card">
-        <h2>1. Definiciones y Clasificación del Recién Nacido</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-            <div>
-                <strong>Por Edad Gestacional:</strong>
-                <ul>
-                    <li><strong>Pretérmino:</strong> <37 semanas (Extremo <28, Muy prematuro 28-31.6, Tardío 32-36.6).</li>
-                    <li><strong>Término:</strong> 37 a 41.6 semanas.</li>
-                    <li><strong>Postérmino:</strong> ≥42 semanas.</li>
-                </ul>
-            </div>
-            <div>
-                <strong>Por Peso:</strong>
-                <ul>
-                    <li><strong>Bajo peso:</strong> <2,500 g.</li>
-                    <li><strong>Muy bajo peso:</strong> <1,500 g.</li>
-                    <li><strong>Extremadamente bajo:</strong> <1,000 g.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>2. Atención del Recién Nacido Sano (GPC)</h2>
+        <h2>1. Clasificación del Recién Nacido</h2>
+        <p><strong>Por Edad Gestacional[cite: 58]:</strong></p>
         <ul>
-            <li><strong>Pinzamiento del cordón:</strong> Entre 60 a 120 segundos (mejora reservas de hierro).</li>
-            <li><strong>Contacto piel a piel:</strong> Primera hora de vida de forma continua.</li>
-            <li><strong>Vitamina K:</strong> 1 mg IM dosis única (previene enfermedad hemorrágica).</li>
-            <li><strong>Profilaxis oftálmica:</strong> Nitrato de plata o antibióticos tópicos.</li>
-            <li><strong>Tamiz metabólico:</strong> Idealmente entre el 3er y 5to día de vida.</li>
+            <li><strong>Pretérmino:</strong> <37 semanas (Extremo <28, Muy prematuro 28-31.6, Tardío 32-36.6)[cite: 59].</li>
+            <li><strong>Término:</strong> 37 a 41.6 semanas[cite: 60].</li>
+            <li><strong>Postérmino:</strong> ≥42 semanas[cite: 61].</li>
+        </ul>
+        <p><strong>Por Peso[cite: 62]:</strong></p>
+        <ul>
+            <li><strong>Bajo peso:</strong> <2,500 g[cite: 63].</li>
+            <li><strong>Muy bajo peso:</strong> <1,500 g[cite: 64].</li>
+            <li><strong>Extremadamente bajo:</strong> <1,000 g[cite: 66].</li>
         </ul>
     </div>
 
-    <div class="card" style="border-left: 6px solid #e53935;">
-        <h2 style="color: #e53935;">3. Reanimación Neonatal (RENEO)</h2>
-        <p><strong>Evaluación Inicial:</strong> ¿Es a término? ¿Buen tono? ¿Respira o llora?</p>
-        
-        <div style="background: #fff3f3; padding: 15px; border-radius: 8px;">
-            <strong>Parámetros Críticos:</strong>
-            <ul>
-                <li><strong>FC < 100 lpm / Apnea:</strong> Iniciar Ventilación a Presión Positiva (VPP).</li>
-                <li><strong>FC < 60 lpm:</strong> Tras 30s de VPP efectiva (MR. SOPA), iniciar Compresiones (Relación 3:1).</li>
-                <li><strong>Medicamentos:</strong> Adrenalina (0.01 a 0.03 mg/kg) vía vena umbilical.</li>
-            </ul>
-        </div>
-        
-        <p><strong>Saturación Pre-ductal Objetiva:</strong><br>
-        1 min: 60-65% | 5 min: 80-85% | 10 min: 85-95%</p>
-    </div>
-
     <div class="card">
-        <h2>4. Escalas de Valoración Clínica</h2>
-        <table style="width:100%; border-collapse: collapse; font-size: 0.85em;">
-            <tr style="background: #00897b; color: white;">
-                <th style="padding: 10px; border: 1px solid #ddd;">Escala</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Uso Principal</th>
-                <th style="padding: 10px; border: 1px solid #ddd;">Interpretación</th>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;"><strong>APGAR</strong></td>
-                <td style="padding: 10px; border: 1px solid #ddd;">Vitalidad al 1' y 5'.</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">7-10 Normal.</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Silverman</strong></td>
-                <td style="padding: 10px; border: 1px solid #ddd;">Dificultad respiratoria.</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">0 es lo ideal.</td>
-            </tr>
-            <tr>
-                <td style="padding: 10px; border: 1px solid #ddd;"><strong>Capurro</strong></td>
-                <td style="padding: 10px; border: 1px solid #ddd;">Edad gestacional somática.</td>
-                <td style="padding: 10px; border: 1px solid #ddd;">Fórmula: (Puntaje + 204) / 7.</td>
-            </tr>
-        </table>
-    </div>
-</div>
-    <div class="card">
-        <h2>Puntos Clave GPC</h2>
+        <h2>2. Atención Inicial y Reanimación</h2>
         <ul>
-            <li><strong>Somatometría:</strong> Peso normal 2500g - 3999g. Talla: 50cm aprox.</li>
-            <li><strong>Apgar:</strong> Evalúa vitalidad al 1' y 5'. No decide reanimación.</li>
-            <li><strong>Capurro:</strong> Método para determinar edad gestacional por somática.</li>
-            <li><strong>Profilaxis:</strong> Vitamina K (1mg IM) y Cloranfenicol oftálmico.</li>
+            <li><strong>Pinzamiento del cordón:</strong> Entre 60 a 120 segundos (RN sano)[cite: 71].</li>
+            <li><strong>Vitamina K:</strong> 1 mg IM dosis única[cite: 75].</li>
+            <li><strong>Evaluación Inicial:</strong> ¿Es a término? ¿Buen tono? ¿Respira o llora?[cite: 81, 82, 83, 84, 85].</li>
+            <li><strong>VPP:</strong> Iniciar si FC < 100 lpm o apnea[cite: 91]. Es la medida más efectiva[cite: 92].</li>
+            <li><strong>Saturación 1 min:</strong> 60-65%[cite: 103].</li>
         </ul>
     </div>
 </div>
 
 <div id="infografia" class="content-section">
-    <div class="card" style="text-align:center;">
-        <h2>Infografía del Tema</h2>
-        <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border-radius:10px;">
-            <p style="color:#888;">[Aquí puedes subir una imagen de tus apuntes luego]</p>
-        </div>
+    <div class="card">
+        <h2>Infografía</h2>
+        <p>Contenido de infografía aquí (ya no se mezclará con la GPC).</p>
     </div>
 </div>
 
 <div id="flashcards" class="content-section">
-    <div class="card" style="background: var(--light-teal); text-align: center; cursor: pointer;" onclick="this.innerHTML='<h3>1. Cloranfenicol oftálmico / Nitrato de Plata</h3>'">
-        <p><strong>Pregunta:</strong> ¿Qué se utiliza para la profilaxis de la oftalmía neonatocócica?</p>
-        <small>(Haz clic para ver respuesta)</small>
+    <div class="card">
+        <h2>Flashcards</h2>
+        <p>Contenido de flashcards aquí.</p>
     </div>
 </div>
 
 <div id="simulador" class="content-section">
     <div class="card">
-        <h2>Simulador Tipo ENARM</h2>
-        <div class="pregunta">
-            <p>1. ¿Cuál es el parámetro del test de APGAR que desaparece primero ante la hipoxia?</p>
-            <div class="opcion" onclick="check(this, true)">Coloración (Cianosis)</div>
-            <div class="opcion" onclick="check(this, false)">Frecuencia cardíaca</div>
-            <div class="opcion" onclick="check(this, false)">Gesticulación</div>
-        </div>
+        <h2>Simulador</h2>
+        <p>Aquí pondremos las 10 preguntas.</p>
     </div>
 </div>
 
 <div id="extras" class="content-section">
     <div class="card">
-        <h2>Herramientas Extra</h2>
-        <p>Calculadora de Edad Gestacional y Tablas de Percentilas (Próximamente).</p>
+        <h2>Herramientas Extras</h2>
+        <p>Tablas y calculadoras.</p>
     </div>
 </div>
 
@@ -172,16 +96,17 @@
     function openTab(evt, tabName) {
         var i, content, tabbtns;
         content = document.getElementsByClassName("content-section");
-        for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+        for (i = 0; i < content.length; i++) { 
+            content[i].style.display = "none"; 
+            content[i].classList.remove("active");
+        }
         tabbtns = document.getElementsByClassName("tab-btn");
-        for (i = 0; i < tabbtns.length; i++) { tabbtns[i].className = tabbtns[i].className.replace(" active", ""); }
+        for (i = 0; i < tabbtns.length; i++) { 
+            tabbtns[i].classList.remove("active");
+        }
         document.getElementById(tabName).style.display = "block";
-        evt.currentTarget.className += " active";
-    }
-
-    function check(el, correct) {
-        if(correct) el.classList.add('correcta');
-        else el.classList.add('incorrecta');
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
     }
 </script>
 
