@@ -3,39 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Especialidad: Pediatría</title>
+    <title>Pediatría - Bloques</title>
     <style>
-        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
-        .header { background: #1a73e8; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
-        .grid-bloques { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .bloque-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; cursor: pointer; }
-        .bloque-card:hover { background: #e8f0fe; border: 1px solid #1a73e8; }
-        .btn-regresar { color: white; text-decoration: none; font-size: 0.9em; float: left; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; margin: 0; padding: 20px; }
+        .header { background: #1a73e8; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 30px; position: relative; }
+        .btn-back { position: absolute; left: 20px; top: 25px; color: white; text-decoration: none; font-weight: bold; }
+        .grid-bloques { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1000px; margin: auto; }
+        .bloque-card { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; border: 1px solid #ddd; }
+        .bloque-card:hover { transform: translateY(-5px); border-color: #1a73e8; }
+        .bloque-titulo { font-weight: bold; font-size: 1.2em; color: #1a73e8; margin-bottom: 10px; }
+        .temas-lista { font-size: 0.9em; color: #555; }
+        .badge { background: #e8f0fe; color: #1a73e8; padding: 3px 10px; border-radius: 10px; font-size: 0.8em; font-weight: bold; }
     </style>
 </head>
 <body>
+
     <div class="header">
-        <a href="index.html" class="btn-regresar">← Volver al Dashboard</a>
+        <a href="index.html" class="btn-back">← Volver</a>
         <h1>Especialidad: Pediatría</h1>
+        <p>Selecciona un bloque para estudiar</p>
     </div>
 
     <div class="grid-bloques">
         <div class="bloque-card" onclick="location.href='neonatologia.html'">
-            <h3>Neonatología</h3>
-            <p>Ictericia, Respi, RENEO</p>
+            <div class="bloque-titulo">1. Neonatología <span class="badge">Prioridad Alta</span></div>
+            <div class="temas-lista">Ictericia, Silverman, Reanimación Neonatal, Tamiz metabólico.</div>
         </div>
+
         <div class="bloque-card">
-            <h3>Cardiología Pediátrica</h3>
-            <p>Acianógenas y Cianógenas</p>
+            <div class="bloque-titulo">2. Crecimiento y Desarrollo</div>
+            <div class="temas-lista">Hitos del desarrollo, Somatometría, Dentición, Pubertad.</div>
         </div>
+
         <div class="bloque-card">
-            <h3>Crecimiento y Desarrollo</h3>
-            <p>Hitos del desarrollo, Somatometría</p>
+            <div class="bloque-titulo">3. Infectología Pediátrica</div>
+            <div class="temas-lista">Exantemáticas, Vacunas (Esquema actual), Otitis, Faringoamigdalitis.</div>
         </div>
+
         <div class="bloque-card">
-            <h3>Genética</h3>
-            <p>Trisomías y errores del metabolismo</p>
+            <div class="bloque-titulo">4. Gastroenterología</div>
+            <div class="temas-lista">Deshidratación (Plan A, B, C), Estenosis pilórica, Intususcepción.</div>
         </div>
-        </div>
+    </div>
+
 </body>
 </html>
