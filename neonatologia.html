@@ -6,13 +6,13 @@
     <title>Temario Neonatología</title>
     <style>
         body { font-family: 'Segoe UI', sans-serif; background: #f4f7f9; margin: 0; padding: 20px; }
-        .header { background: #00897b; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; position: relative; }
+        .header { background: #00897b; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 30px; position: relative; }
         .btn-back { position: absolute; left: 20px; top: 25px; color: white; text-decoration: none; font-weight: bold; }
-        .grid-temas { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; max-width: 1100px; margin: auto; }
-        .tema-card { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; cursor: pointer; border-left: 5px solid #00897b; }
-        .tema-card:hover { transform: scale(1.02); background: #e0f2f1; }
-        .tema-card h3 { margin: 0; font-size: 1.1em; color: #333; }
-        .etiqueta { font-size: 0.75em; color: #00897b; font-weight: bold; text-transform: uppercase; }
+        .grid-temas { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: auto; }
+        .tema-card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s; cursor: pointer; border-left: 6px solid #00897b; display: flex; flex-direction: column; justify-content: center; min-height: 80px; }
+        .tema-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); background: #f0fdfa; }
+        .etiqueta { font-size: 0.7em; color: #00897b; font-weight: bold; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
+        .tema-card h3 { margin: 0; font-size: 1.05em; color: #2c3e50; line-height: 1.3; }
     </style>
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="header">
         <a href="pediatria.html" class="btn-back">← Volver</a>
         <h1>Neonatología</h1>
-        <p>Selecciona un tema para desglosar recursos</p>
+        <p>Selecciona un tema para desglosar recursos y simuladores</p>
     </div>
 
     <div class="grid-temas">
@@ -36,15 +36,59 @@
 
         <div class="tema-card" onclick="location.href='tema-resp-neonatal.html'">
             <div class="etiqueta">Tema 03</div>
-            <h3>Patología Respiratoria</h3>
+            <h3>Patología Respiratoria Neonatal</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-hemorragica.html'">
+            <div class="etiqueta">Tema 04</div>
+            <h3>Enfermedad Hemorrágica del RN</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-hipoglucemia.html'">
+            <div class="etiqueta">Tema 05</div>
+            <h3>Hipoglucemia Neonatal</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-congenita.html'">
+            <div class="etiqueta">Tema 06</div>
+            <h3>Patología Congénita</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-sepsis.html'">
+            <div class="etiqueta">Tema 07</div>
+            <h3>Sepsis Neonatal</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-enterocolitis.html'">
+            <div class="etiqueta">Tema 08</div>
+            <h3>Enterocolitis Necrotizante</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-fiebre.html'">
+            <div class="etiqueta">Tema 09</div>
+            <h3>Fiebre en menores de 3 meses</h3>
+        </div>
+
+        <div class="tema-card" onclick="location.href='tema-encefalopatia.html'">
+            <div class="etiqueta">Tema 10</div>
+            <h3>Encefalopatía Hipóxico-Isquémica</h3>
         </div>
 
         <div class="tema-card" onclick="location.href='tema-ictericia.html'">
-            <div class="etiqueta">Tema 04</div>
+            <div class="etiqueta">Tema 11</div>
             <h3>Ictericia Neonatal</h3>
         </div>
-        
+
+        <div class="tema-card" onclick="location.href='tema-torch.html'">
+            <div class="etiqueta">Tema 12</div>
+            <h3>Perfil TORCH</h3>
         </div>
+
+        <div class="tema-card" onclick="location.href='tema-tamiz.html'">
+            <div class="etiqueta">Tema 13</div>
+            <h3>Tamiz Neonatal y Somatometría</h3>
+        </div>
+    </div>
 
 </body>
 </html>
