@@ -2,24 +2,81 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Neonatología - Repaso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neonatología - ENARM</title>
     <style>
-        body { font-family: sans-serif; padding: 30px; line-height: 1.6; color: #333; }
-        .repaso-box { background: #fffbe6; border-left: 5px solid #fadb14; padding: 20px; border-radius: 5px; }
-        h1 { color: #1a73e8; }
-        .btn { padding: 10px 20px; background: #1a73e8; color: white; text-decoration: none; border-radius: 5px; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f8f9fa; margin: 0; padding: 20px; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #1a73e8; text-decoration: none; font-weight: bold; }
+        h1 { color: #1a73e8; border-bottom: 2px solid #e8f0fe; padding-bottom: 10px; }
+        .perla-clinica { background: #fff4e5; border-left: 5px solid #ffa117; padding: 15px; margin: 20px 0; border-radius: 5px; }
+        
+        /* Estilos del Quiz */
+        .quiz-section { margin-top: 40px; }
+        .pregunta { background: #f1f3f4; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .opcion { display: block; background: white; border: 2px solid #ddd; padding: 10px; margin: 10px 0; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+        .opcion:hover { border-color: #1a73e8; background: #e8f0fe; }
+        .correcta { border-color: #28a745 !important; background: #d4edda !important; font-weight: bold; }
+        .incorrecta { border-color: #dc3545 !important; background: #f8d7da !important; }
+        .explicacion { margin-top: 10px; font-size: 0.9em; color: #666; display: none; }
     </style>
 </head>
 <body>
-    <a href="pediatria.html">← Regresar a Pediatría</a>
-    <h1>Bloque: Neonatología</h1>
-    
-    <div class="repaso-box">
-        <h3>💡 Perla ENARM: Ictericia</h3>
-        <p>La ictericia que aparece en las <b>primeras 24 horas</b> de vida siempre se considera <b>PATOLÓGICA</b> hasta demostrar lo contrario. La causa más común es la isoinmunización a grupo o Rh.</p>
+
+<div class="container">
+    <a href="pediatria.html" class="back-link">← Regresar a Bloques</a>
+    <h1>Foco: Neonatología</h1>
+
+    <div class="perla-clinica">
+        <strong>📌 Perla ENARM:</strong> El test de <strong>Silverman-Anderson</strong> evalúa dificultad respiratoria. Recuerda: <em>A diferencia de Apgar, aquí entre más puntos tenga el paciente, ¡peor está!</em> (0 es normal, 10 es insuficiencia respiratoria severa).
     </div>
 
-    <br><br>
-    <button onclick="alert('¡Próximamente: Simulador de 10 preguntas!')" class="btn">Empezar Simulador</button>
+    <div class="quiz-section">
+        <h2>Simulador Rápido</h2>
+
+        <div class="pregunta">
+            <p><strong>1. Recién nacido de 12 horas de vida que presenta ictericia hasta nivel del ombligo. Usted clasifica según escala de Kramer como:</strong></p>
+            <div class="opcion" onclick="verificar(this, false, 'Kramer I es solo cabeza y cuello.')">Kramer I</div>
+            <div class="opcion" onclick="verificar(this, true, 'Kramer II abarca cabeza, cuello y tronco superior hasta el ombligo.')">Kramer II</div>
+            <div class="opcion" onclick="verificar(this, false, 'Kramer III llega hasta las rodillas.')">Kramer III</div>
+            <div class="explicacion"></div>
+        </div>
+
+        <div class="pregunta">
+            <p><strong>2. ¿Cuál es el tratamiento inicial de elección en un neonato con diagnóstico de ictericia por isoinmunización Rh estable?</strong></p>
+            <div class="opcion" onclick="verificar(this, true, 'La fototerapia es el tratamiento inicial estándar.')">Fototerapia</div>
+            <div class="opcion" onclick="verificar(this, false, 'La exanguinotransfusión se reserva para niveles críticos o falla en fototerapia.')">Exanguinotransfusión</div>
+            <div class="opcion" onclick="verificar(this, false, 'El fenobarbital ya no es de primera línea.')">Fenobarbital</div>
+            <div class="explicacion"></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function verificar(elemento, esCorrecta, mensaje) {
+        const padre = elemento.parentElement;
+        const opciones = padre.querySelectorAll('.opcion');
+        const explicacion = padre.querySelector('.explicacion');
+
+        // Deshabilitar otros clics
+        opciones.forEach(opt => opt.style.pointerEvents = 'none');
+
+        if (esCorrecta) {
+            elemento.classList.add('correcta');
+        } else {
+            elemento.classList.add('incorrecta');
+            // Resaltar la correcta también
+            opciones.forEach(opt => {
+                if (opt.innerText.includes('Kramer II') || opt.innerText.includes('Fototerapia')) {
+                    opt.classList.add('correcta');
+                }
+            });
+        }
+
+        explicacion.style.display = 'block';
+        explicacion.innerHTML = "<strong>Explicación:</strong> " + mensaje;
+    }
+</script>
+
 </body>
 </html>
