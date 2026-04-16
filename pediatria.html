@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialidad: Pediatría</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .header { background: #1a73e8; color: white; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; }
+        .grid-bloques { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .bloque-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; cursor: pointer; }
+        .bloque-card:hover { background: #e8f0fe; border: 1px solid #1a73e8; }
+        .btn-regresar { color: white; text-decoration: none; font-size: 0.9em; float: left; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html" class="btn-regresar">← Volver al Dashboard</a>
+        <h1>Especialidad: Pediatría</h1>
+    </div>
+
+    <div class="grid-bloques">
+        <div class="bloque-card" onclick="location.href='neonatologia.html'">
+            <h3>Neonatología</h3>
+            <p>Ictericia, Respi, RENEO</p>
+        </div>
+        <div class="bloque-card">
+            <h3>Cardiología Pediátrica</h3>
+            <p>Acianógenas y Cianógenas</p>
+        </div>
+        <div class="bloque-card">
+            <h3>Crecimiento y Desarrollo</h3>
+            <p>Hitos del desarrollo, Somatometría</p>
+        </div>
+        <div class="bloque-card">
+            <h3>Genética</h3>
+            <p>Trisomías y errores del metabolismo</p>
+        </div>
+        </div>
+</body>
+</html>
