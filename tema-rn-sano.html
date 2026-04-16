@@ -107,6 +107,93 @@
 
 <div id="simulador" class="content-section">
     <div class="card">
+        <h2>Simulador de Autoevaluación</h2>
+        <p>Responde las siguientes 10 preguntas basadas en la GPC y el manual de Reanimación Neonatal.</p>
+        <hr>
+        
+        <div id="quiz-container">
+            <div class="pregunta-bloque" id="p1">
+                <p><strong>1. ¿Cuál es la conducta inicial recomendada ante un RN de término, con buen tono, que respira y llora al nacer?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p1', '¡Correcto! En el RN sano se debe fomentar el apego inmediato y el pinzamiento tardío.')">A) Contacto piel a piel y pinzamiento del cordón a los 60-120 segundos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto. La aspiración de rutina no se recomienda en RN vigorosos.')">B) Traslado a servocuna para aspiración de secreciones.</div>
+                <div class="opcion" onclick="validar(this, false, 'p1', 'Incorrecto. El pinzamiento inmediato no es de rutina.')">C) Pinzamiento inmediato del cordón umbilical.</div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="pregunta-bloque" id="p2" style="margin-top:20px;">
+                <p><strong>2. ¿Cuál es la intervención más efectiva ante un RN con FC < 100 lpm o apnea tras los pasos iniciales?</strong></p>
+                <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto. El oxígeno no sustituye la ventilación necesaria.')">A) Administración de oxígeno a flujo libre.</div>
+                <div class="opcion" onclick="validar(this, true, 'p2', '¡Correcto! La VPP es la medida de reanimación más importante y efectiva.')">B) Iniciar Ventilación a Presión Positiva (VPP).</div>
+                <div class="opcion" onclick="validar(this, false, 'p2', 'Incorrecto. Las compresiones inician si la FC es < 60 tras VPP.')">C) Iniciar compresiones torácicas.</div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="pregunta-bloque" id="p3" style="margin-top:20px;">
+                <p><strong>3. ¿Qué puntaje de APGAR corresponde a un RN con FC de 110, llanto débil, cierta flexión, gesticulación y acrocianosis?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p3', '¡Correcto! Suma: FC(2) + Resp(1) + Tono(1) + Reflejo(1) + Color(1) = 6.')">A) 6 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto. Revisa los puntos de color y esfuerzo respiratorio.')">B) 8 puntos.</div>
+                <div class="opcion" onclick="validar(this, false, 'p3', 'Incorrecto. La FC > 100 otorga 2 puntos completos.')">C) 4 puntos.</div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="pregunta-bloque" id="p4" style="margin-top:20px;">
+                <p><strong>4. Sitio ideal para colocar el oxímetro y medir la saturación pre-ductal:</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p4', '¡Correcto! La mano derecha refleja la sangre que sale antes del ductus arterioso.')">A) Mano derecha.</div>
+                <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto. El pie refleja saturación post-ductal.')">B) Pie izquierdo.</div>
+                <div class="opcion" onclick="validar(this, false, 'p4', 'Incorrecto. Se prefiere mano derecha por anatomía vascular.')">C) Mano izquierda.</div>
+                <div class="feedback"></div>
+            </div>
+
+            <div class="pregunta-bloque" id="p5" style="margin-top:20px;">
+                <p><strong>5. En la mnemotecnia MR. SOPA, ¿qué significa la letra S?</strong></p>
+                <div class="opcion" onclick="validar(this, true, 'p5', '¡Correcto! Succión de boca y nariz es el paso para despejar la vía aérea.')">A) Succión de boca y nariz.</div>
+                <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto. El sello de la máscara es la M.')">B) Sello de la máscara.</div>
+                <div class="opcion" onclick="validar(this, false, 'p5', 'Incorrecto. Corresponde a la letra R.')">C) Sobreextensión del cuello.</div>
+                <div class="feedback"></div>
+            </div>
+
+            </div>
+    </div>
+</div>
+
+<style>
+    .pregunta-bloque { border-bottom: 1px dashed #ccc; padding-bottom: 15px; }
+    .opcion { 
+        padding: 12px; 
+        border: 1px solid #ddd; 
+        margin: 8px 0; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        transition: 0.2s;
+        background: #fff;
+    }
+    .opcion:hover { background: #f0fdfa; border-color: #00897b; }
+    .opcion.correct { background: #dcfce7; border-color: #16a34a; color: #166534; }
+    .opcion.wrong { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
+    .feedback { font-size: 0.9em; margin-top: 5px; font-weight: bold; display: none; }
+</style>
+
+<script>
+    function validar(elemento, esCorrecto, idPadre, mensaje) {
+        let padre = document.getElementById(idPadre);
+        let opciones = padre.getElementsByClassName('opcion');
+        let fb = padre.getElementsByClassName('feedback')[0];
+
+        // Deshabilitar clics adicionales
+        for (let opt of opciones) { opt.style.pointerEvents = "none"; }
+
+        if (esCorrecto) {
+            elemento.classList.add('correct');
+        } else {
+            elemento.classList.add('wrong');
+        }
+
+        fb.innerHTML = mensaje;
+        fb.style.display = "block";
+        fb.style.color = esCorrecto ? "#166534" : "#991b1b";
+    }
+</script>
+    <div class="card">
         <h2>Simulador</h2>
         <p>Cargando preguntas de reanimación y RN sano...</p>
     </div>
