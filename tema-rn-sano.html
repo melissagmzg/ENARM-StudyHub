@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recién Nacido Sano - ENARM</title>
+    <style>
+        :root { --teal: #00897b; --light-teal: #e0f2f1; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f7f9; }
+        .header { background: var(--teal); color: white; padding: 15px; text-align: center; }
+        
+        /* Sistema de Pestañas */
+        .tabs { display: flex; background: white; box-shadow: 0 2px 5px rgba(0,0,0,0.1); sticky; top: 0; overflow-x: auto; }
+        .tab-btn { padding: 15px 20px; border: none; background: none; cursor: pointer; font-weight: 600; color: #666; transition: 0.3s; flex: 1; min-width: 120px; }
+        .tab-btn.active { color: var(--teal); border-bottom: 4px solid var(--teal); background: var(--light-teal); }
+
+        .content-section { display: none; padding: 25px; max-width: 900px; margin: auto; }
+        .content-section.active { display: block; }
+
+        /* Estilos de Tarjetas de Contenido */
+        .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        h2 { color: var(--teal); border-left: 5px solid var(--teal); padding-left: 10px; }
+        
+        /* Simulador */
+        .pregunta { background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 15px; border: 1px solid #eee; }
+        .opcion { display: block; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; cursor: pointer; }
+        .opcion:hover { background: #f0f0f0; }
+        .correcta { background: #d4edda; border-color: #28a745; }
+        .incorrecta { background: #f8d7da; border-color: #dc3545; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1 style="margin:0; font-size: 1.2em;">Recién Nacido Sano</h1>
+    <a href="neonatologia.html" style="color: white; text-decoration:none; font-size: 0.8em;">← Volver al Temario</a>
+</div>
+
+<div class="tabs">
+    <button class="tab-btn active" onclick="openTab(event, 'gpc')">Resumen GPC</button>
+    <button class="tab-btn" onclick="openTab(event, 'infografia')">Infografía</button>
+    <button class="tab-btn" onclick="openTab(event, 'flashcards')">Flashcards</button>
+    <button class="tab-btn" onclick="openTab(event, 'simulador')">Simulador</button>
+    <button class="tab-btn" onclick="openTab(event, 'extras')">Extras</button>
+</div>
+
+<div id="gpc" class="content-section active">
+    <div class="card">
+        <h2>Puntos Clave GPC</h2>
+        <ul>
+            <li><strong>Somatometría:</strong> Peso normal 2500g - 3999g. Talla: 50cm aprox.</li>
+            <li><strong>Apgar:</strong> Evalúa vitalidad al 1' y 5'. No decide reanimación.</li>
+            <li><strong>Capurro:</strong> Método para determinar edad gestacional por somática.</li>
+            <li><strong>Profilaxis:</strong> Vitamina K (1mg IM) y Cloranfenicol oftálmico.</li>
+        </ul>
+    </div>
+</div>
+
+<div id="infografia" class="content-section">
+    <div class="card" style="text-align:center;">
+        <h2>Infografía del Tema</h2>
+        <div style="background:#eee; height:300px; display:flex; align-items:center; justify-content:center; border-radius:10px;">
+            <p style="color:#888;">[Aquí puedes subir una imagen de tus apuntes luego]</p>
+        </div>
+    </div>
+</div>
+
+<div id="flashcards" class="content-section">
+    <div class="card" style="background: var(--light-teal); text-align: center; cursor: pointer;" onclick="this.innerHTML='<h3>1. Cloranfenicol oftálmico / Nitrato de Plata</h3>'">
+        <p><strong>Pregunta:</strong> ¿Qué se utiliza para la profilaxis de la oftalmía neonatocócica?</p>
+        <small>(Haz clic para ver respuesta)</small>
+    </div>
+</div>
+
+<div id="simulador" class="content-section">
+    <div class="card">
+        <h2>Simulador Tipo ENARM</h2>
+        <div class="pregunta">
+            <p>1. ¿Cuál es el parámetro del test de APGAR que desaparece primero ante la hipoxia?</p>
+            <div class="opcion" onclick="check(this, true)">Coloración (Cianosis)</div>
+            <div class="opcion" onclick="check(this, false)">Frecuencia cardíaca</div>
+            <div class="opcion" onclick="check(this, false)">Gesticulación</div>
+        </div>
+    </div>
+</div>
+
+<div id="extras" class="content-section">
+    <div class="card">
+        <h2>Herramientas Extra</h2>
+        <p>Calculadora de Edad Gestacional y Tablas de Percentilas (Próximamente).</p>
+    </div>
+</div>
+
+<script>
+    function openTab(evt, tabName) {
+        var i, content, tabbtns;
+        content = document.getElementsByClassName("content-section");
+        for (i = 0; i < content.length; i++) { content[i].style.display = "none"; }
+        tabbtns = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tabbtns.length; i++) { tabbtns[i].className = tabbtns[i].className.replace(" active", ""); }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    function check(el, correct) {
+        if(correct) el.classList.add('correcta');
+        else el.classList.add('incorrecta');
+    }
+</script>
+
+</body>
+</html>
