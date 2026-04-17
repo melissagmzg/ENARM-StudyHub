@@ -32,6 +32,7 @@
     .sh-teal{background:#E1F5EE;color:#0F6E56;border-bottom:0.5px solid #9FE1CB}
     .sh-purple{background:#EEEDFE;color:#3C3489;border-bottom:0.5px solid #CECBF6}
     .sh-gray{background:#f8f8f8;color:#555;border-bottom:0.5px solid #ddd}
+    .sh-green{background:#EAF3DE;color:#3B6D11;border-bottom:0.5px solid #C0DD97}
 
     /* Grid Layouts */
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -49,6 +50,7 @@
     .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-bottom:5px}
     .badge-blue{background:#E6F1FB;color:#185FA5}
     .badge-red{background:#FCEBEB;color:#A32D2D}
+    .badge-green{background:#EAF3DE;color:#3B6D11}
 
     .kp{font-size:13px;padding:10px;border-radius:8px;margin-bottom:8px;border-left:3px solid}
     .kp-amber{background:#FAEEDA;color:#633806;border-color:#EF9F27}
@@ -71,6 +73,11 @@
     .card-item{background:#fff;border:1px solid #ddd;padding:15px;border-radius:10px;cursor:pointer;min-height:100px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;font-weight:500;transition:0.3s}
     .card-item.flipped{background: #185FA5; color: white; border-color: #185FA5}
 
+    /* Placeholders para multimedia y documentos */
+    .img-placeholder{width:100%;height:300px;background:#f8f9fa;border:2px dashed #cbd5e1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:8px;color:#64748b;font-size:13px;margin-top:10px;text-align:center;padding:20px;}
+    .doc-link{display:flex;align-items:center;gap:10px;padding:12px;background:#f8f9fa;border:1px solid #ddd;border-radius:8px;text-decoration:none;color:#1a1a1a;font-weight:500;font-size:14px;transition:0.2s;margin-bottom:10px;}
+    .doc-link:hover{background:#E6F1FB;border-color:#B5D4F4;color:#185FA5;}
+
     @media(max-width:600px){.row2{grid-template-columns:1fr}}
 </style>
 </head>
@@ -80,10 +87,13 @@
     <h1><span>🍼</span> Neonatología: RN Sano y RENEO</h1>
 
     <div class="tabs">
-        <div class="tab active" onclick="switchTab('rnsano',this)">👶 Recién Nacido Sano</div>
-        <div class="tab" onclick="switchTab('reneo',this)">🫁 Reanimación (RENEO)</div>
+        <div class="tab active" onclick="switchTab('rnsano',this)">👶 RN Sano</div>
+        <div class="tab" onclick="switchTab('reneo',this)">🫁 RENEO</div>
+        <div class="tab" onclick="switchTab('infografia',this)">🖼️ Infografía</div>
+        <div class="tab" onclick="switchTab('gpc',this)">📚 GPC</div>
         <div class="tab" onclick="switchTab('flashcards',this)">🃏 Flashcards</div>
-        <div class="tab" onclick="switchTab('simulador',this)">📝 Simulador Pro</div>
+        <div class="tab" onclick="switchTab('simulador',this)">📝 Simulador</div>
+        <div class="tab" onclick="switchTab('extras',this)">🛠️ Extras</div>
     </div>
 
     <div id="rnsano" class="page active">
@@ -181,6 +191,45 @@
         </div>
     </div>
 
+    <div id="infografia" class="page">
+        <div class="section">
+            <div class="section-header sh-purple">Resumen Visual: RN Sano y RENEO</div>
+            <div class="section-body">
+                <p style="font-size:13.5px; color:#444;">Visualiza rápidamente los algoritmos y puntos clave con esta infografía integrada.</p>
+                <div class="img-placeholder">
+                    <span style="font-size:24px; margin-bottom:10px;">🖼️</span>
+                    <strong>[Espacio para tu Infografía]</strong>
+                    <span style="margin-top:5px;">Reemplaza este contenedor con una etiqueta &lt;img src="..."&gt;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="gpc" class="page">
+        <div class="section">
+            <div class="section-header sh-blue">Guías de Práctica Clínica Oficiales</div>
+            <div class="section-body">
+                <p style="font-size:13.5px; margin-bottom:15px; color:#444;">Consulta las fuentes oficiales para profundizar en los algoritmos nacionales.</p>
+                
+                <a href="#" class="doc-link">
+                    <span style="font-size:20px;">📄</span>
+                    <div>
+                        <div style="font-weight:600;">Atención del Recién Nacido Sano</div>
+                        <div style="font-size:11px; color:#666; font-weight:normal;">GPC Evidencias y Recomendaciones (CENETEC)</div>
+                    </div>
+                </a>
+                
+                <a href="#" class="doc-link">
+                    <span style="font-size:20px;">📄</span>
+                    <div>
+                        <div style="font-weight:600;">Manual de Reanimación Neonatal (RENEO)</div>
+                        <div style="font-size:11px; color:#666; font-weight:normal;">8va Edición - Algoritmo Actualizado</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div id="flashcards" class="page">
         <div class="section">
             <div class="section-header sh-purple">Flashcards: Conceptos Clave</div>
@@ -218,6 +267,32 @@
             </div>
         </div>
     </div>
+
+    <div id="extras" class="page">
+        <div class="section">
+            <div class="section-header sh-teal">Herramientas y Calculadoras Extras</div>
+            <div class="section-body">
+                <div class="alert alert-green">
+                    <strong>Calculadoras Próximamente:</strong> En esta sección podrás agregar calculadoras de dosis exactas (ej. Adrenalina según el peso) o fórmulas rápidas para la edad gestacional.
+                </div>
+                <div class="stat-row">
+                    <div class="stat">
+                        <span style="font-size:24px;">🧮</span>
+                        <span class="stat-lbl" style="margin-top:5px; font-weight:600;">Dosis Adrenalina</span>
+                    </div>
+                    <div class="stat">
+                        <span style="font-size:24px;">📅</span>
+                        <span class="stat-lbl" style="margin-top:5px; font-weight:600;">Capurro / Ballard</span>
+                    </div>
+                    <div class="stat">
+                        <span style="font-size:24px;">⚖️</span>
+                        <span class="stat-lbl" style="margin-top:5px; font-weight:600;">Percentiles Peso</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <script>
