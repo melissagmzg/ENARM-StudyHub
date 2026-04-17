@@ -34,6 +34,7 @@
     .sh-teal{background:#E1F5EE;color:#0F6E56;border-bottom:0.5px solid #9FE1CB}
     .sh-purple{background:#EEEDFE;color:#3C3489;border-bottom:0.5px solid #CECBF6}
     .sh-gray{background:#f8f8f8;color:#555;border-bottom:0.5px solid #ddd}
+    .sh-green{background:#EAF3DE;color:#3B6D11;border-bottom:0.5px solid #C0DD97}
 
     /* Grids y Stats */
     .row2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -51,6 +52,7 @@
     .badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-bottom:5px}
     .badge-blue{background:#E6F1FB;color:#185FA5}
     .badge-red{background:#FCEBEB;color:#A32D2D}
+    .badge-green{background:#EAF3DE;color:#3B6D11}
 
     .kp{font-size:13px;padding:10px;border-radius:8px;margin-bottom:8px;border-left:3px solid}
     .kp-amber{background:#FAEEDA;color:#633806;border-color:#EF9F27}
@@ -103,9 +105,9 @@
             <div class="section-body">
                 <div class="stat-row">
                     <div class="stat"><span class="stat-num">37-41.6</span><span class="stat-lbl">SDG Término</span></div>
-                    <div class="stat"><span class="stat-num"><2,500g</span><span class="stat-lbl">Bajo Peso</span></div>
-                    <div class="stat"><span class="stat-num"><1,500g</span><span class="stat-lbl">Muy Bajo Peso</span></div>
-                    <div class="stat"><span class="stat-num"><1,000g</span><span class="stat-lbl">Ext. Bajo Peso</span></div>
+                    <div class="stat"><span class="stat-num">&lt; 2,500g</span><span class="stat-lbl">Bajo Peso</span></div>
+                    <div class="stat"><span class="stat-num">&lt; 1,500g</span><span class="stat-lbl">Muy Bajo Peso</span></div>
+                    <div class="stat"><span class="stat-num">&lt; 1,000g</span><span class="stat-lbl">Ext. Bajo Peso</span></div>
                 </div>
                 <div class="kp-amber"><strong>Tip ENARM:</strong> Un RN de 33 SDG con 950g se clasifica como <em>Pretérmino con Peso Extremadamente Bajo</em>.</div>
             </div>
@@ -161,7 +163,7 @@
         <div class="section">
             <div class="section-header sh-red">Algoritmo de Reanimación Neonatal</div>
             <div class="section-body">
-                <div class="alert alert-red"><strong>Premisa:</strong> Si hay Apnea, Boqueo o FC < 100 lpm tras pasos iniciales → <strong>VPP de inmediato</strong>.</div>
+                <div class="alert alert-red"><strong>Premisa:</strong> Si hay Apnea, Boqueo o FC &lt; 100 lpm tras pasos iniciales → <strong>VPP de inmediato</strong>.</div>
                 <div class="kp-purple"><strong>MR. SOPA (Pasos correctivos):</strong><br>M: Máscara | R: Reubicación | S: Succión | O: Open mouth | P: Presión | A: Alternativa (TET).</div>
                 
                 <img src="Gemini_Generated_Image_vbwxouvbwxouvbwx.jpg" alt="Algoritmo de Reanimación Neonatal 8a edición" class="img-fluid">
@@ -250,5 +252,88 @@
             <div class="section-body">
                 <div id="q1">
                     <p style="font-size:14px; font-weight:500; margin-bottom:10px">1. Recién nacido obtenido por cesárea. Tras pasos iniciales presenta apnea y FC de 82 lpm. ¿Conducta a seguir?</p>
-                    <div class="opcion" onclick="check(this, true, 'q1', '¡Correcto! FC < 100 o apnea es indicación de VPP.')">A) Iniciar VPP</div>
-                    <div class="opcion" onclick="check(this, false, 'q1', 'Incorrecto.')
+                    <div class="opcion" onclick="check(this, true, 'q1', '¡Correcto! FC &lt; 100 o apnea es indicación de VPP.')">A) Iniciar VPP</div>
+                    <div class="opcion" onclick="check(this, false, 'q1', 'Incorrecto.')">B) Oxígeno a flujo libre</div>
+                    <div class="opcion" onclick="check(this, false, 'q1', 'Incorrecto.')">C) Iniciar compresiones</div>
+                    <div class="opcion" onclick="check(this, false, 'q1', 'Incorrecto.')">D) Adrenalina inmediata</div>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="extras" class="page">
+        <div class="section">
+            <div class="section-header sh-teal">Herramientas y Calculadoras Extras</div>
+            <div class="section-body">
+                <div class="stat-row">
+                    <div class="stat">
+                        <span style="font-size:24px;">🧮</span>
+                        <span class="stat-lbl" style="margin-top:5px; font-weight:600;">Dosis Adrenalina</span>
+                    </div>
+                    <div class="stat">
+                        <span style="font-size:24px;">📅</span>
+                        <span class="stat-lbl" style="margin-top:5px; font-weight:600;">Capurro / Ballard</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function switchTab(id, el) {
+        // Apagar todas las paginas
+        document.querySelectorAll('.page').forEach(function(page) {
+            page.style.display = 'none';
+            page.classList.remove('active');
+        });
+        
+        // Deseleccionar todas las pestañas
+        document.querySelectorAll('.tab').forEach(function(tab) {
+            tab.classList.remove('active');
+        });
+        
+        // Activar la seleccionada
+        document.getElementById(id).style.display = 'block';
+        document.getElementById(id).classList.add('active');
+        el.classList.add('active');
+    }
+
+    function flip(el, answer) {
+        if (!el.dataset.question) el.dataset.question = el.innerText;
+        if (el.classList.contains('flipped')) {
+            el.innerText = el.dataset.question;
+            el.classList.remove('flipped');
+        } else {
+            el.innerText = answer;
+            el.classList.add('flipped');
+        }
+    }
+
+    function check(el, isCorrect, qId, msg) {
+        var parent = document.getElementById(qId);
+        var opts = parent.querySelectorAll('.opcion');
+        var fb = parent.querySelector('.feedback');
+        
+        opts.forEach(function(o) {
+            o.style.pointerEvents = 'none';
+        });
+        
+        if (isCorrect) {
+            el.classList.add('correct');
+            fb.style.color = '#27500A';
+            fb.style.background = '#EAF3DE';
+        } else {
+            el.classList.add('wrong');
+            fb.style.color = '#791F1F';
+            fb.style.background = '#FCEBEB';
+        }
+        fb.innerHTML = msg;
+        fb.style.display = 'block';
+    }
+</script>
+
+</body>
+</html>
