@@ -78,6 +78,9 @@
     .doc-link{display:flex;align-items:center;gap:10px;padding:12px;background:#f8f9fa;border:1px solid #ddd;border-radius:8px;text-decoration:none;color:#1a1a1a;font-weight:500;font-size:14px;transition:0.2s;margin-bottom:10px;}
     .doc-link:hover{background:#E6F1FB;border-color:#B5D4F4;color:#185FA5;}
 
+    /* NUEVO: Estilo para Imágenes Responsivas */
+    .img-fluid {max-width: 100%; height: auto; border-radius: 8px; display: block; margin: 15px auto 0; border: 1px solid #eee; box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
+
     @media(max-width:600px){.row2{grid-template-columns:1fr}}
 </style>
 </head>
@@ -158,10 +161,12 @@
 
     <div id="reneo" class="page">
         <div class="section">
-            <div class="section-header sh-red">Algoritmo de Reanimación (Minuto de Oro)</div>
+            <div class="section-header sh-red">Algoritmo de Reanimación Neonatal</div>
             <div class="section-body">
                 <div class="alert alert-red"><strong>Premisa:</strong> Si hay Apnea, Boqueo o FC < 100 lpm tras pasos iniciales → <strong>VPP de inmediato</strong>.</div>
                 <div class="kp-purple"><strong>MR. SOPA (Pasos correctivos):</strong><br>M: Máscara | R: Reubicación | S: Succión | O: Open mouth | P: Presión | A: Alternativa (TET).</div>
+                
+                <img src="Gemini_Generated_Image_vbwxouvbwxouvbwx.jpg" alt="Algoritmo de Reanimación Neonatal 8a edición" class="img-fluid">
             </div>
         </div>
 
@@ -199,7 +204,7 @@
                 <div class="img-placeholder">
                     <span style="font-size:24px; margin-bottom:10px;">🖼️</span>
                     <strong>[Espacio para tu Infografía]</strong>
-                    <span style="margin-top:5px;">Reemplaza este contenedor con una etiqueta &lt;img src="..."&gt;</span>
+                    <span style="margin-top:5px;">Reemplaza este contenedor con una etiqueta &lt;img src="..." class="img-fluid"&gt;</span>
                 </div>
             </div>
         </div>
@@ -300,39 +305,4 @@
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
         document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        el.classList.add('active');
-    }
-
-    function flip(el, answer) {
-        if (!el.dataset.question) el.dataset.question = el.innerText;
-        if (el.classList.contains('flipped')) {
-            el.innerText = el.dataset.question;
-            el.classList.remove('flipped');
-        } else {
-            el.innerText = answer;
-            el.classList.add('flipped');
-        }
-    }
-
-    function check(el, isCorrect, qId, msg) {
-        let parent = document.getElementById(qId);
-        let opts = parent.querySelectorAll('.opcion');
-        let fb = parent.querySelector('.feedback');
-        opts.forEach(o => o.style.pointerEvents = 'none');
-        
-        if (isCorrect) {
-            el.classList.add('correct');
-            fb.style.color = '#27500A';
-            fb.style.background = '#EAF3DE';
-        } else {
-            el.classList.add('wrong');
-            fb.style.color = '#791F1F';
-            fb.style.background = '#FCEBEB';
-        }
-        fb.innerHTML = msg;
-        fb.style.display = 'block';
-    }
-</script>
-
-</body>
-</html>
+        el.classList.add
